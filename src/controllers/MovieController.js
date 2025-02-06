@@ -11,7 +11,7 @@ const insertMovies = async (req, res) => {
     await connectDB();
     const insertedMovies = await Movie.find({});
     if (insertedMovies.length > 0) {
-      res.status(200).json({ author: "Omer", message: "Movies already inserted" });
+      res.status(200).json({ message: "Movies already inserted" });
       return;
     }
     await Movie.insertMany(movies);
