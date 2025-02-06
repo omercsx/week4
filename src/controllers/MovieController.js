@@ -22,4 +22,15 @@ const insertMovies = async (req, res) => {
   }
 };
 
+// get all movies
+const getAllMovies = async (req, res) => {
+  try {
+    const movies = await Movie.find();
+    res.status(200).json({ message: "Movies fetched successfully", movies });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: `Error fetching movies ${error.message}` });
+  }
+}
+
 module.exports = { insertMovies };
